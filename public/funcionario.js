@@ -1,4 +1,4 @@
-async function cadastrarFuncionario(event) {
+async function cadastrarfuncionario(event) {
     event.preventDefault();
 
     const funcionario = {
