@@ -38,7 +38,7 @@ async function cadastrarfuncionario(event) {
         const result = await response.json();
         if (response.ok) {
             alert('Funcionario cadastrado com sucesso!');
-            //document.getElementById('cliente-form').reset();
+            //document.getElementById('funcionario-form').reset();
         } else {
             alert(`Erro: ${result.message}`);
         }
@@ -51,10 +51,10 @@ async function cadastrarfuncionario(event) {
 // Função para listar todos os funcionario ou buscar funcionario por CPF
 async function listarfuncionario() {
     // const cpf = document.getElementById('cpf').value.trim();  // Pega o valor do CPF digitado no input
-    const nome = document.getElementById('funcionario-nome').value.trim();
-    const cpf = document.getElementById('funcionario-cpf').value.trim();
-    const email = document.getElementById('funcionario-email').value.trim();
-    const telefone_responsavel = document.getElementById('resp0-telefone').value.trim();
+    const nome = document.getElementById('func-nome').value.trim();
+    const cpf = document.getElementById('func-cpf').value.trim();
+    const email = document.getElementById('func-email').value.trim();
+    const telefone = document.getElementById('func-telefone').value.trim();
 
     let url = '/funcionario';  // URL padrão para todos os funcionario
 
@@ -77,10 +77,10 @@ async function listarfuncionario() {
             funcionario.forEach(funcionarioItem => {
                 const linha = document.createElement('tr');
                 linha.innerHTML = `
-                    <td>${funcionario.nome}</td>
-                    <td>${funcionario.cpf}</td>
-                    <td>${funcionario.email}</td>
-                    <td>${funcionario.telefone}</td>
+                    <td>${funcionarioItem.nome}</td>
+                    <td>${funcionarioItem.cpf}</td>
+                    <td>${funcionarioItem.email}</td>
+                    <td>${funcionarioItem.telefone}</td>
                 `;
                 tabela.appendChild(linha);
             });
@@ -92,16 +92,16 @@ async function listarfuncionario() {
 
 // Função para atualizar as informações do funcionario
 async function atualizarfuncionario() {
-    const nome = document.getElementById('funcionario-nome').value;
-    const cpf = document.getElementById('funcionario-cpf').value;
-    const email = document.getElementById('funcionario-email').value;
-    const telefone_responsavel = document.getElementById('resp0-telefone').value;
+    const nome = document.getElementById('func-nome').value;
+    const cpf = document.getElementById('func-cpf').value;
+    const email = document.getElementById('func-email').value;
+    const telefone = document.getElementById('func-telefone').value;
 
     const funcionarioAtualizado = {
         nome,
         cpf,
         email,
-        telefone_responsavel,
+        telefone,
     };
 
     try {

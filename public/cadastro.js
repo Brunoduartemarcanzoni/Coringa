@@ -87,6 +87,7 @@ async function listarAlunos() {
                 const linha = document.createElement('tr');
                 linha.innerHTML = `
                     <td>${aluno.nome}</td>
+                    <td>${aluno.cgm}</td>
                     <td>${aluno.cpf}</td>
                     <td>${aluno.email}</td>
                     <td>${aluno.telefone}</td>
